@@ -114,3 +114,18 @@ ol, ul {
         color: #2e2f42;
         text-align: center;
 }
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #ccc;
+    border-top-color: #1d72b8;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
