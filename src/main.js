@@ -10,7 +10,7 @@ const gallery = document.querySelector(".gallery");
 form.addEventListener("submit", event => {
     event.preventDefault();
 
-    const query = event.target.elements.search.value.trim();
+    const query = event.target.elements['search-text'].value.trim();
     if (!query) {
         iziToast.warning({
             title: "warning",
@@ -19,6 +19,32 @@ form.addEventListener("submit", event => {
         });
         return;
     }
-    gallery.innerHTML = "";
-}
-)
+
+    clearGallery();
+    showLoader();
+
+    getImagesByQuery(query)
+    .then(data => {
+      const { hits } = data;
+
+      if (hits.length === 0) {
+        iziToast.info({
+          title: 'Info',
+          message: 'Sorry, there are no images matching your search query. Please try again!',
+          position: 'topRight'
+        });
+      } else {
+        createGallery(hits);
+      }
+    })
+    .catch(error => {
+      iziToast.error({
+        title: 'Error',
+        message: 'Something went wrong. Please try again later.',
+        position: 'topRight'
+      });
+    })
+    .finally(() => {
+      hideLoader();
+    });
+});

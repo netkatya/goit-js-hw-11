@@ -1,3 +1,15 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+ol, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 .form {
     display: flex;
     justify-content: center;
@@ -38,4 +50,67 @@
 
 .button:hover {
     background: #6c8cff;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding-top: 32px;
+}
+
+.gallery-item {
+    width: 360px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.image {
+    width: 358px;
+    height: 198px;
+    border: 1px solid #808080;
+}
+
+.description {
+    display: flex;
+    width: 358px;
+    gap: 28px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #808080;
+    position: absolute;
+    z-index: 99;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+
+    transform: translateY(100%);
+    transition: transform 300ms ease-in-out;
+}
+
+.gallery-item:hover .description {
+    transform: translateY(0);
+}
+
+.text {
+    font-weight: 600;
+        font-size: 12px;
+        line-height: 133%;
+        letter-spacing: 0.04em;
+        color: #2e2f42;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+}
+
+.span {
+    font-weight: 400;
+        font-size: 12px;
+        line-height: 200%;
+        letter-spacing: 0.04em;
+        color: #2e2f42;
+        text-align: center;
 }
