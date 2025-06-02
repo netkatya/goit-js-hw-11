@@ -123,6 +123,7 @@ ol, ul {
     border-radius: 50%;
     display: none;
     animation: rotation 1s linear infinite;
+    margin: 0 auto;
     }
 
     @keyframes rotation {
